@@ -15,11 +15,13 @@ body {
 #navbar a {
     color: #ffffff;
     margin: 1vw;
+    font-weight: 500;
     text-decoration: none;
-    padding: 0.1vw;
+    padding: 0.3vw;
     border-radius: 5px;
     background-color: #000000;
-    border: 1px solid black;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 #navbar a:hover {
@@ -27,21 +29,31 @@ body {
     background-color: white;
 }
 
+#navbar a.active {
+    color: black;
+    background-color: white;
+}
 
 h1 {
-    font-size: 1.5vw;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 450;
     margin: 0;
 }
 
 h2 {
-    font-size: 1.5vw;
+    font-size: 1.7rem;
     font-weight: 500;
 }
 
 h3 {
     font-weight: 500;
-    margin-bottom: 0.3vw;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+h4 {
+    font-weight: 500;
+    margin-top: 0.4vw;
 }
 
 p {
@@ -61,6 +73,10 @@ p {
     text-decoration: none;
     color: #3447f1;
     font-size: 0.9vw;
+}
+
+#links a:hover {
+    color: #9db0ee;
 }
 
 #about-text {
@@ -84,4 +100,56 @@ p {
 
 b {
     font-weight: 500;
+}
+
+.project-card {
+    margin-top: 2vw;
+}
+
+.skills {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.skill {
+    background-color: #153594;
+    color: white;
+    width: fit-content;
+    padding: 0.2vw 0.4vw;
+    border-radius: 5px;
+    margin-top: 0.5vw;
+    font-size: 0.7vw;
+}
+
+#contact-info {
+    width: 30vw;
+    height: 2vw;
+    margin-bottom: 1vw;
+    border-radius: 10px;
+    padding: 0.5vw;
+}
+
+#contact-message {
+    width: 30vw;
+    height: 15vw;
+    border-radius: 10px;
+    padding: 0.5vw;
+    resize: none;
+}
+
+#contact-submit {
+    width: 10vw;
+    margin-top: 1vw;
+    height: 2vw;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 0.5vw;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+#contact-submit:hover {
+    color:black;
+    background-color: white;
 }
