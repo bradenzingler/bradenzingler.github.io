@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                 </li>
                 <li class="project-card">
-                <h3>Search Engine</h3>
+                <h3><a href="/search_engine">Search Engine</a></h3>
                 A search engine that indexes thousands of web pages based on the term-frequency inverse document frequency (TF-IDF) algorithm.
                 The search engine can return <i>somewhat</i> relevant results, generally in less than 20 milliseconds. The search
                 engine operates on solely Wikipedia articles, since the internet is a big place. Made in conjunction with the web crawler.
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             },
 
-            fetch('https://ozjvtf6epenneg7weehq2hseeu0kwlpn.lambda-url.us-east-1.on.aws/', {
+            fetch('https://wmw3y791sh.execute-api.us-east-1.amazonaws.com/default/portfolioEmailer', {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(body)
