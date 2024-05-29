@@ -162,17 +162,35 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('contact-link').addEventListener('click', () => {
         bodyContent.innerHTML = content.contact;
         setActiveLink(contactLink);
-    });
 
-    const email = document.getElementById('contact-info');
+        const email = document.getElementById('contact-info');
     const message = document.getElementById('contact-message');
     const submit = document.getElementById('contact-submit');
     submit.addEventListener('click', () => {
         if (email.value && message.value) {
-            alert('Message sent!');
+            //https://ozjvtf6epenneg7weehq2hseeu0kwlpn.lambda-url.us-east-1.on.aws/
+            body = {
+                email: email.value,
+                message: message.value
+            };
+            headers =  {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+            },
+
+            fetch('https://ozjvtf6epenneg7weehq2hseeu0kwlpn.lambda-url.us-east-1.on.aws/', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(body)
+            }).then(() => {
+                alert('Message sent!');
+                email.value = '';
+                message.value = '';
+            });
         } else {
             alert('Please fill out both fields.');
         }
+        });
     });
-
 });
