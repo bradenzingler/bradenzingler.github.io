@@ -210,14 +210,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     message.value = '';
 
                     // Show success message
+                    submit.innerHTML = 'Message sent!';
                     const greenCheck = document.createElement('div');
                     greenCheck.innerHTML = '&#10003;';
                     greenCheck.className = 'green-check';
                     submit.appendChild(greenCheck);
-
-                    submit.innerHTML = 'Message sent!';
                     loadingSpinner.remove();
                     
+                    // Reset the button after 3 seconds
+                    setTimeout(() => {
+                        submit.innerHTML = 'Send Message';
+                        submit.removeChild(greenCheck);
+                        submit.disabled = false;
+                    }, 3000);
                 });
 
             } else {
