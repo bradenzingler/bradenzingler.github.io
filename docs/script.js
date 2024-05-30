@@ -39,6 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2>Projects</h2>
             <ul id="project-list">
                 <li class="project-card">
+                    <h3>Portfolio</h3>
+                    This website is one of my most recent projects. I built this portfolio to showcase my projects, skills, and experience. The website is built using HTML, CSS, and JavaScript and is hosted on GitHub Pages. The message sending is handled by an AWS Lambda function, made accessible by an API Gateway. The Lambda function is written in Python, and sends a message to an AWS SNS topic that I am subscribed to so I can recieve messages. 
+                    <ul class="skills">
+                        <li class="skill">Java</li>
+                        <li class="skill">Java GUI</li>
+                    </ul>
+                </li>
+                <li class="project-card">
                 <h3>Recipe Extractor</a></h3>
                 A Chrome extension to extract recipes from web pages and simplify the cooking process.
                 This project taught me the basics of web scraping and Chrome extension development.
@@ -78,6 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                 </li>
                 <li class="project-card">
+                    <h3>Snake Game</h3>
+                    A simple snake game built using Java and Java GUI. The game allows users to control a snake that grows in length as it eats food. The game includes features such as score tracking, game over detection, and collision detection. The project was a fun way for me to practice my Java skills and learn more about game development and GUI programming. I am working on training a neural network to play the game, but it is still a work in progress.
+                    <ul class="skills">
+                        <li class="skill">Java</li>
+                        <li class="skill">Java GUI</li>
+                    </ul>
+                </li>
+                <li class="project-card">
                     <h3>Chat App</h3>
                     A command-line chat application that enables real-time communication between users. The application is built on a server-client model, where the server manages all incoming messages and broadcasts them to all connected clients. It uses socket programming to facilitate communication between the server and clients and supports multiple concurrent connections. While it still needs some work, the chat app was a great way for me to learn about socket programming and network communication, as well as the capabilities of the command line.
                     <ul class="skills">
@@ -86,11 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li class="skill">Multithreading</li>
                     </ul>
                 </li>
+                
                 <li class="project-card">
                     <h3>Mandelbrot Set Visualizer</h3>
                     A visualizer for the Mandelbrot set that allows users to explore the set. The visualizer is built using Java and Java GUI and uses the Mandelbrot set algorithm to generate the fractal. The visualizer also includes a color mapping feature that allows users to customize the colors of the set. The project was a fun way for me to learn more about fractals and visualization techniques, as well as mathematical applications of computer science.
                     <ul class="skills">
                         <li class="skill">Java</li>
+                        <li class="skill">Java GUI</li>
                     </ul>
                 </li>
             </ul>
@@ -216,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     greenCheck.className = 'green-check';
                     submit.appendChild(greenCheck);
                     loadingSpinner.remove();
-                    
+
                     // Reset the button after 3 seconds
                     setTimeout(() => {
                         submit.innerHTML = 'Send Message';
