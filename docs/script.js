@@ -168,20 +168,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const submit = document.getElementById('contact-submit');
     submit.addEventListener('click', () => {
         if (email.value && message.value) {
-            //https://ozjvtf6epenneg7weehq2hseeu0kwlpn.lambda-url.us-east-1.on.aws/
             body = {
                 email: email.value,
                 message: message.value
             };
-            headers =  {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-            },
 
             fetch('https://wmw3y791sh.execute-api.us-east-1.amazonaws.com/default/portfolioEmailer', {
                 method: 'POST',
-                headers: headers,
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(body)
             }).then(() => {
                 alert('Message sent!');
