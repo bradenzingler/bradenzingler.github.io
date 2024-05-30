@@ -123,8 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </ul>
         `,
         contact: `
-            <h2>Contact</h2>
-            <p>Send me a message:</p>
+            <h2>Send me a message</h2>
             <textarea id="contact-info" placeholder="Email"></textarea>
             <textarea id="contact-message" placeholder="Message"></textarea>
             <button id="contact-submit">Send Message</button>
@@ -191,22 +190,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
         submit.addEventListener('click', () => {
             if (email.value && message.value) {
+                const loadingSpinner = document.createElement('div');
+                loadingSpinner.className = 'loading-spinner';
+                submit.innerText = 'Sending...';
+                submit.appendChild(loadingSpinner);
+                submit.disabled = true;
 
                 body = {email: email.value, message: message.value};
                 headers = {'Content-Type': 'application/json'};
-
+                
                 // Send the email to the API Gateway
                 fetch('https://wmw3y791sh.execute-api.us-east-1.amazonaws.com/default/portfolioEmailer', {
                     method: 'POST',
                     headers: headers,
                     body: JSON.stringify(body)
                 }).then(() => {
+                    // Reset the form
                     email.value = '';
                     message.value = '';
+
+                    // Show success message
+                    const greenCheck = document.createElement('div');
+                    greenCheck.innerHTML = '&#10003;';
+                    greenCheck.className = 'green-check';
+                    submit.appendChild(greenCheck);
+
+                    submit.innerHTML = 'Message sent!';
+                    loadingSpinner.remove();
+                    
                 });
-                
+
             } else {
-                alert('Please fill out both fields.');
+                // Handle required fields
+               if (!email.value) {
+                   email.placeholder = 'Please enter an email';
+               }
+               if (!message.value) {
+                   message.placeholder = 'Please enter a message';
+               }
             }
         });
     });
