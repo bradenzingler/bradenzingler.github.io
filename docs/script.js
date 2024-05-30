@@ -131,11 +131,16 @@ document.addEventListener('DOMContentLoaded', function() {
         `
     };
     
+    
     projectsLink = document.getElementById('projects-link');
     aboutLink = document.getElementById('about-link');
     workLink = document.getElementById('work-link');
     contactLink = document.getElementById('contact-link');
 
+
+    /**
+     * Set the active link in the navbar.
+     */
     function setActiveLink(link) {
         const links = [projectsLink, aboutLink, workLink, contactLink];
         for (let i = 0; i < links.length; i++) {
@@ -144,47 +149,65 @@ document.addEventListener('DOMContentLoaded', function() {
         link.classList = 'active';
     }
 
+
+    /**
+     * Projects section
+     */
     projectsLink.addEventListener('click', () => {
         bodyContent.innerHTML = content.projects;
         setActiveLink(projectsLink);
     });
 
+
+    /**
+     * About me section
+     */
     document.getElementById('about-link').addEventListener('click', () => {
         bodyContent.innerHTML = content.about;
         setActiveLink(aboutLink);
     });
 
+
+    /**
+     * Work experience section
+     */
     document.getElementById('work-link').addEventListener('click', () => {
         bodyContent.innerHTML = content.work;
         setActiveLink(workLink);
     });
 
+
+    /**
+     * Contact form submission to send me an email.
+     * Uses an AWS Lambda to send the email and SNS topic to send the email.
+     */
     document.getElementById('contact-link').addEventListener('click', () => {
         bodyContent.innerHTML = content.contact;
         setActiveLink(contactLink);
 
-        const email = document.getElementById('contact-info');
-    const message = document.getElementById('contact-message');
-    const submit = document.getElementById('contact-submit');
-    submit.addEventListener('click', () => {
-        if (email.value && message.value) {
-            body = {
-                email: email.value,
-                message: message.value
-            };
+        const email     = document.getElementById('contact-info');
+        const message   = document.getElementById('contact-message');
+        const submit    = document.getElementById('contact-submit');
 
-            fetch('https://wmw3y791sh.execute-api.us-east-1.amazonaws.com/default/portfolioEmailer', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(body)
-            }).then(() => {
-                alert('Message sent!');
-                email.value = '';
-                message.value = '';
-            });
-        } else {
-            alert('Please fill out both fields.');
-        }
+        submit.addEventListener('click', () => {
+            if (email.value && message.value) {
+
+                body = {email: email.value, message: message.value};
+                headers = {'Content-Type': 'application/json'};
+
+                // Send the email to the API Gateway
+                fetch('https://wmw3y791sh.execute-api.us-east-1.amazonaws.com/default/portfolioEmailer', {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify(body)
+                }).then(() => {
+                    email.value = '';
+                    message.value = '';
+                });
+                
+            } else {
+                alert('Please fill out both fields.');
+            }
         });
     });
 });
