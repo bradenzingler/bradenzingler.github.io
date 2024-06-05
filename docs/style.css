@@ -6,6 +6,7 @@ body {
     align-items: center;
 }
 
+
 #navbar {
     padding: 0;
     display: flex;
@@ -22,6 +23,7 @@ body {
     background-color: #000000;
     border: 2px solid black;
     cursor: pointer;
+    box-shadow: 4px 4px;
 }
 
 #navbar a:hover {
@@ -69,10 +71,11 @@ h4 {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 #about {
     display: flex;
+
 }
 
 #links {
@@ -101,6 +104,7 @@ p {
 #quick-view {
     text-align: left;
     width: 40rem;
+    padding: 1rem;
 }
 
 #quick-view ul {
@@ -113,7 +117,7 @@ b {
 }
 
 .project-card {
-    margin-top: 2vw;
+    margin-bottom: 2rem;
 }
 
 .skills {
@@ -123,13 +127,18 @@ b {
 }
 
 .skill {
-    background-color: #153594;
-    color: white;
+    background-color: #0baa60;
+    color: #98ffd1;
     width: fit-content;
     padding: 0.2rem 0.4rem;
     border-radius: 5px;
     margin-top: 0.5vw;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.skill:hover {
+    transform: scale(1.11);
 }
 
 #contact-info {
@@ -216,6 +225,7 @@ b {
     #quick-view {
         width: 60vw;
     }
+    
 }
 
 @media (max-width: 768px) {
@@ -240,5 +250,4 @@ b {
     #quick-view {
         width: 95vw;
     }
-    
 }

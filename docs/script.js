@@ -1,49 +1,55 @@
 document.addEventListener('DOMContentLoaded', function() {
     const bodyContent = document.getElementById('quick-view');
-    
+
     const content = {
         about: `
         <h2>Quick facts</h2>
-        <ul>
-            <li>
-                <h3>Education</h3>
-                University of Wisconsin - Madison, Computer Engineering<br>
-                Spring 2026 - Dean's Honor List every semester
-            </li>
-            <li>
-                <h3>Skills</h3>
             <ul>
-                <li><b>Software</b>: Java, Python, C/C++, SQL</li>
-                <li><b>AWS</b>: Lambda, SNS, SQS, S3, DynamoDB, Polly, APIGW</li>
-                <li><b>Hardware</b>: circuit design & analysis, ModelSim, Quartus, LTSpice, SystemVerilog,
-                    computer organization, logic design.
+                <li>
+                    <h3>Education</h3>
+                    University of Wisconsin - Madison, Computer Engineering<br>
+                    Spring 2026 - Dean's Honor List every semester
+                </li>
+                <li>
+                    <h3>Skills</h3>
+                <ul>
+                    <li><b>Software</b>: Java, Python, C/C++, JavaScript, HTML/CSS, Dart, Flutter, React, Node.js, SQL</li>
+                    <li><b>AWS</b>: Lambda, SNS, SQS, S3, DynamoDB, Polly, APIGW</li>
+                    <li><b>Hardware</b>: Circuit design & analysis, ModelSim, LTSpice, SystemVerilog,
+                        logic design
+                    </li>
+                </ul>
+                </li>
+                <li>
+                    <h3>Experience</h3>
+                    <ul>
+                        <li><b>2024</b>: Software Engineering Intern, Sinclair Digital</li>
+                        <li><b>2023</b>: Software Engineering Intern, Sinclair Digital</li>
+                        <li><b>2022</b>: Engineering Intern, Cardinal Glass</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Software development</li>
+                        <li>Machine Learning</li>
+                        <li>Hardware design</li>
+                    </ul>
                 </li>
             </ul>
-            </li>
-            <li>
-                <h3>Experience</h3>
-                <ul>
-                    <li>23-present, Software Engineering Intern, Sinclair Digital</li>
-                    <li>22, Engineering Intern, Cardinal Glass</li>
-                </ul>
-            </li>
-            <li>
-                <h3>Interests</h3>
-                Software development<br>
-                Machine learning<br>
-                Hardware design
-            </li>
-        </ul>
         `,
         projects: `
             <h2>Projects</h2>
             <ul id="project-list">
                 <li class="project-card">
                     <h3>Portfolio</h3>
-                    This website is one of my most recent projects. I built this portfolio to showcase my projects, skills, and experience. The website is built using HTML, CSS, and JavaScript and is hosted on GitHub Pages. The message sending is handled by an AWS Lambda function, made accessible by an API Gateway. The Lambda function is written in Python, and sends a message to an AWS SNS topic that I am subscribed to so I can recieve messages. 
+                    This website is one of my most recent projects. I built this portfolio to showcase my projects, skills, and experience. The website is built using HTML, CSS, and JavaScript and is hosted on GitHub Pages.
                     <ul class="skills">
-                        <li class="skill">Java</li>
-                        <li class="skill">Java GUI</li>
+                        <li class="skill">Web development</li>
+                        <li class="skill">JavaScript</li>
+                        <li class="skill">HTML</li>
+                        <li class="skill">CSS</li>
+                        <li class="skill">Responsive design</li>
                     </ul>
                 </li>
                 <li class="project-card">
@@ -82,12 +88,26 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li class="skill">SQLite</li>
                         <li class="skill">JSoup</li>
                         <li class="skill">Maven</li>
-                        <li class="skill">Tokenizing</li>
+                        <li class="skill">NLP</li>
+                    </ul>
+                </li>
+                <li class="project-card">
+                    <h3>Mutual Friends</h3>
+                    An implementation of Dijkstra's algorithm to the closest mutual connections between
+                    two users of a social media app. The project read a CSV file of users into a graph, where
+                    a user being friends with another user is an edge of the graph, and each user is a node. The project was done
+                    for a programming class at UW-Madison with a team of eight people. I was responsible for the backend of
+                    the project.
+                    <ul class="skills">
+                        <li class="skill">Java</li>
+                        <li class="skill">Algorithms</li>
+                        <li class="skill">CSV file parsing</li>
+                        <li class="skill">Data Science</li>
                     </ul>
                 </li>
                 <li class="project-card">
                     <h3>Snake Game</h3>
-                    A simple snake game built using Java and Java GUI. The game allows users to control a snake that grows in length as it eats food. The game includes features such as score tracking, game over detection, and collision detection. The project was a fun way for me to practice my Java skills and learn more about game development and GUI programming. I am working on training a neural network to play the game, but it is still a work in progress.
+                    A simple snake game built using Java and Java GUI. The game allows users to control a snake that grows in length as it eats food. The game includes features such as score tracking, game over detection, and collision detection. I want to eventually train a neural network to play the game.
                     <ul class="skills">
                         <li class="skill">Java</li>
                         <li class="skill">Java GUI</li>
@@ -140,26 +160,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             </ul>
         `,
-        contact: `
-            <h2>Send me a message</h2>
-            <textarea id="contact-info" placeholder="Email"></textarea>
-            <textarea id="contact-message" placeholder="Message"></textarea>
-            <button id="contact-submit">Send Message</button>
-        `
     };
-    
     
     projectsLink = document.getElementById('projects-link');
     aboutLink = document.getElementById('about-link');
     workLink = document.getElementById('work-link');
-    contactLink = document.getElementById('contact-link');
 
 
     /**
      * Set the active link in the navbar.
      */
     function setActiveLink(link) {
-        const links = [projectsLink, aboutLink, workLink, contactLink];
+        const links = [projectsLink, aboutLink, workLink];
         for (let i = 0; i < links.length; i++) {
             links[i].classList = '';
         }
@@ -192,66 +204,5 @@ document.addEventListener('DOMContentLoaded', function() {
         bodyContent.innerHTML = content.work;
         setActiveLink(workLink);
     });
-
-
-    /**
-     * Contact form submission to send me an email.
-     * Uses an AWS Lambda to send the email and SNS topic to send the email.
-     */
-    document.getElementById('contact-link').addEventListener('click', () => {
-        bodyContent.innerHTML = content.contact;
-        setActiveLink(contactLink);
-
-        const email     = document.getElementById('contact-info');
-        const message   = document.getElementById('contact-message');
-        const submit    = document.getElementById('contact-submit');
-
-        submit.addEventListener('click', () => {
-            if (email.value && message.value) {
-                const loadingSpinner = document.createElement('div');
-                loadingSpinner.className = 'loading-spinner';
-                submit.innerText = 'Sending...';
-                submit.appendChild(loadingSpinner);
-                submit.disabled = true;
-
-                body = {email: email.value, message: message.value};
-                headers = {'Content-Type': 'application/json'};
-                
-                // Send the email to the API Gateway
-                fetch('https://wmw3y791sh.execute-api.us-east-1.amazonaws.com/default/portfolioEmailer', {
-                    method: 'POST',
-                    headers: headers,
-                    body: JSON.stringify(body)
-                }).then(() => {
-                    // Reset the form
-                    email.value = '';
-                    message.value = '';
-
-                    // Show success message
-                    submit.innerHTML = 'Message sent!';
-                    const greenCheck = document.createElement('div');
-                    greenCheck.innerHTML = '&#10003;';
-                    greenCheck.className = 'green-check';
-                    submit.appendChild(greenCheck);
-                    loadingSpinner.remove();
-
-                    // Reset the button after 3 seconds
-                    setTimeout(() => {
-                        submit.innerHTML = 'Send Message';
-                        submit.removeChild(greenCheck);
-                        submit.disabled = false;
-                    }, 3000);
-                });
-
-            } else {
-                // Handle required fields
-               if (!email.value) {
-                   email.placeholder = 'Please enter an email';
-               }
-               if (!message.value) {
-                   message.placeholder = 'Please enter a message';
-               }
-            }
-        });
-    });
 });
+
