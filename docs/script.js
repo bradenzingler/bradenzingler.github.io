@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                 </li>
                 <li class="project-card">
-                    <h3>Snake Game</h3>
+                    <h3><a href="/Snake_Game">Snake Game</a></h3>
                     A simple snake game built using Java and Java GUI. The game allows users to control a snake that grows in length as it eats food. The game includes features such as score tracking, game over detection, and collision detection. I want to eventually train a neural network to play the game.
                     <ul class="skills">
                         <li class="skill">Java</li>
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                 </li>
                 <li class="project-card">
-                    <h3>Chat App</h3>
+                    <h3><a href="/chat_app">Chat App</a></h3>
                     A command-line chat application that enables real-time communication between users. The application is built on a server-client model, where the server manages all incoming messages and broadcasts them to all connected clients. It uses socket programming to facilitate communication between the server and clients and supports multiple concurrent connections. While it still needs some work, the chat app was a great way for me to learn about socket programming and network communication, as well as the capabilities of the command line.
                     <ul class="skills">
                         <li class="skill">Python</li>
