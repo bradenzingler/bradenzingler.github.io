@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </ul>
                 </li>
                 <li class="project-card">
-                <h3>Recipe Extractor</a></h3>
+                <h3><a href="/recipe_extractor">Recipe Extractor</a></h3>
                 A Chrome extension to extract recipes from web pages and simplify the cooking process.
                 This project taught me the basics of web scraping and Chrome extension development.
                 I also implemented a blacklist to block the extension on certain websites, along with an integrated
