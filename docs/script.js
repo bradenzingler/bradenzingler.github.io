@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </li>
                 <li class="project-card">
                     <h3>Mutual Friends</h3>
-                    An implementation of Dijkstra's algorithm to the closest mutual connections between
+                    An implementation of Dijkstra's algorithm to find the closest mutual connections between
                     two users of a social media app. The project read a CSV file of users into a graph, where
                     a user being friends with another user is an edge of the graph, and each user is a node. The project was done
                     for a programming class at UW-Madison with a team of eight people. I was responsible for the backend of
